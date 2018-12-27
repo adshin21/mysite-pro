@@ -6,3 +6,12 @@ class Blog(models.Model):
 	pub_date = models.DateTimeField()
 	body = models.TextField()
 	image = models.ImageField(upload_to = 'images/')
+
+	def __str__(self):
+		return self.title
+		
+	def summary(self):
+		return self.body[:97] + '...'
+
+	def prettydate(self):
+		return self.pub_date.date()
